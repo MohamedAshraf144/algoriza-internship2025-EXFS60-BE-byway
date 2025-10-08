@@ -1,0 +1,951 @@
+{
+  "info": {
+    "name": "Byway API - Complete Collection",
+    "description": "Complete API collection for Byway Learning Platform with all endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://mohamedexfs60-001-site1.mtempurl.com",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "🔧 System",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            }
+          }
+        },
+        {
+          "name": "Swagger Documentation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/swagger",
+              "host": ["{{baseUrl}}"],
+              "path": ["swagger"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔐 Authentication",
+      "item": [
+        {
+          "name": "User Registration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"123456\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Email\": \"user@example.com\",\n  \"Password\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Google OAuth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/google",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "google"]
+            }
+          }
+        },
+        {
+          "name": "Google OAuth Callback",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/google-callback",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "google-callback"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "👤 Admin Setup",
+      "item": [
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@byway.com\",\n  \"password\": \"123456\",\n  \"firstName\": \"Admin\",\n  \"lastName\": \"User\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/AdminSetup/create-admin",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "AdminSetup", "create-admin"]
+            }
+          }
+        },
+        {
+          "name": "Check Admin Exists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/AdminSetup/check-admin",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "AdminSetup", "check-admin"]
+            }
+          }
+        },
+        {
+          "name": "Delete Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/AdminSetup/delete-admin",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "AdminSetup", "delete-admin"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 Courses",
+      "item": [
+        {
+          "name": "Get All Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses"]
+            }
+          }
+        },
+        {
+          "name": "Get Course by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Search Courses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses/search?query=react&categoryId=1&minPrice=0&maxPrice=500&level=Beginner",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses", "search"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "react"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "1"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "0"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "500"
+                },
+                {
+                  "key": "level",
+                  "value": "Beginner"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Courses with Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses?page=1&pageSize=10&categoryId=1&instructorId=1&level=Beginner&minPrice=0&maxPrice=500&search=react",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "1"
+                },
+                {
+                  "key": "instructorId",
+                  "value": "1"
+                },
+                {
+                  "key": "level",
+                  "value": "Beginner"
+                },
+                {
+                  "key": "minPrice",
+                  "value": "0"
+                },
+                {
+                  "key": "maxPrice",
+                  "value": "500"
+                },
+                {
+                  "key": "search",
+                  "value": "react"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Course (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Title",
+                  "value": "Course Title",
+                  "type": "text"
+                },
+                {
+                  "key": "Description",
+                  "value": "Course Description",
+                  "type": "text"
+                },
+                {
+                  "key": "Price",
+                  "value": "99.99",
+                  "type": "text"
+                },
+                {
+                  "key": "Level",
+                  "value": "Beginner",
+                  "type": "text"
+                },
+                {
+                  "key": "Duration",
+                  "value": "10",
+                  "type": "text"
+                },
+                {
+                  "key": "CategoryId",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "InstructorId",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "Rating",
+                  "value": "4.5",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses"]
+            }
+          }
+        },
+        {
+          "name": "Update Course (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Title",
+                  "value": "Updated Title",
+                  "type": "text"
+                },
+                {
+                  "key": "Description",
+                  "value": "Updated Description",
+                  "type": "text"
+                },
+                {
+                  "key": "Price",
+                  "value": "149.99",
+                  "type": "text"
+                },
+                {
+                  "key": "Level",
+                  "value": "Intermediate",
+                  "type": "text"
+                },
+                {
+                  "key": "Duration",
+                  "value": "15",
+                  "type": "text"
+                },
+                {
+                  "key": "CategoryId",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "InstructorId",
+                  "value": "2",
+                  "type": "text"
+                },
+                {
+                  "key": "Rating",
+                  "value": "4.8",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Course (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Courses/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Courses", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🏷️ Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories"]
+            }
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Category (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "Category Name",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories"]
+            }
+          }
+        },
+        {
+          "name": "Update Category (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "Updated Category Name",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Category (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Categories/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Categories", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "👨‍🏫 Instructors",
+      "item": [
+        {
+          "name": "Get All Instructors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Instructors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Instructors"]
+            }
+          }
+        },
+        {
+          "name": "Get Instructor by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Instructors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Instructors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Instructor (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "Instructor Name",
+                  "type": "text"
+                },
+                {
+                  "key": "Bio",
+                  "value": "Instructor Bio",
+                  "type": "text"
+                },
+                {
+                  "key": "JobTitle",
+                  "value": "FullstackDeveloper",
+                  "type": "text"
+                },
+                {
+                  "key": "Rating",
+                  "value": "4.5",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Instructors",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Instructors"]
+            }
+          }
+        },
+        {
+          "name": "Update Instructor (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Name",
+                  "value": "Updated Instructor Name",
+                  "type": "text"
+                },
+                {
+                  "key": "Bio",
+                  "value": "Updated Bio",
+                  "type": "text"
+                },
+                {
+                  "key": "JobTitle",
+                  "value": "BackendDeveloper",
+                  "type": "text"
+                },
+                {
+                  "key": "Rating",
+                  "value": "4.8",
+                  "type": "text"
+                },
+                {
+                  "key": "Image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Instructors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Instructors", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Instructor (Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Instructors/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Instructors", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🛒 Cart",
+      "item": [
+        {
+          "name": "Get User Cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart"]
+            }
+          }
+        },
+        {
+          "name": "Add Course to Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"courseId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "add"]
+            }
+          }
+        },
+        {
+          "name": "Remove Course from Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/remove/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "remove", "1"]
+            }
+          }
+        },
+        {
+          "name": "Clear Cart",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/clear",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "clear"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "💳 Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cartItemIds\": [1, 2, 3]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Orders"]
+            }
+          }
+        },
+        {
+          "name": "Get User Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Order by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Orders/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Orders", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📊 Admin Dashboard",
+      "item": [
+        {
+          "name": "Get Platform Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "stats"]
+            }
+          }
+        },
+        {
+          "name": "Get All Users (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get All Orders (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "orders"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "🏠 Landing Page",
+      "item": [
+        {
+          "name": "Get Landing Page Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/LandingPage",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "LandingPage"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📱 My Courses",
+      "item": [
+        {
+          "name": "Get User's Purchased Courses",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/MyCourses",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "MyCourses"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📧 Email",
+      "item": [
+        {
+          "name": "Send Welcome Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"name\": \"User Name\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Email/welcome",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Email", "welcome"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
